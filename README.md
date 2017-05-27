@@ -54,7 +54,7 @@ This is simple:
     wget http://ipkg.nslu2-linux.org/feeds/optware/cs05q3armel/cross/stable/lspro-bootstrap_1.2-7_arm.xsh
     sh ./lspro-bootstrap_1.2-7_arm.xsh
 
-The `.xsh` script will boostrap the system, by unpackaging a binary-archive embedded within itself, and then executing it.
+The `.xsh` script will boosttrap the system, by unpackaging a binary-archive embedded within itself, and then executing it.
 
 To view the contents of the archive you can run this:
 
@@ -94,6 +94,8 @@ Once that file has been updated you'll need to restart NFS:
 
     /opt/etc/init.d/*nsfs* stop
     /opt/etc/init.d/*nsfs* start
+
+**NOTE**: We're explicitly installing the __user-space__ NFS server here.  My first attempt involved using the kernel-mode NFS server, via a third-party repository.  This failed to boot, effectively bricking the device neatly.  Recovering from that was a real pain, and something I have no wish to repeat!  (You need a third-party kernel because the default kernel contains zero NFS-modules.  Also doesn't contain a kernel `.config` file either.)
 
 
 ## Testing NFS

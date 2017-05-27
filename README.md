@@ -3,6 +3,13 @@
 This document briefly describes how to install NFS on your buffalo device,
 along with how to get remote root access, via SSH.
 
+There are two systems involved here:
+
+* My desktop system - which will mount the exports.
+  * `10.0.0.10`
+* The NAS device itself.
+  * `10.0.0.108`
+
 
 # Get Root
 
@@ -11,7 +18,7 @@ See `./root.sh` which uses `./nas`.
 Once you have root you can login to your NAS via SSH and run commands
 interactively.  This is a good point to stop if you're happy with Linux:
 
-    deagol ~ $ sshtmp root@10.0.108
+    deagol ~ $ ssh root@10.0.108
     root@10.0.108's password:
 
     [root@LS220DE37E ~]# uptime
@@ -41,17 +48,37 @@ interactively.  This is a good point to stop if you're happy with Linux:
 
 ## Install ipkg
 
+This is simple:
+
+    cd /tmp
+    wget http://ipkg.nslu2-linux.org/feeds/optware/cs05q3armel/cross/stable/lspro-bootstrap_1.2-7_arm.xsh
+    sh ./lspro-bootstrap_1.2-7_arm.xsh
+
+The `.xsh` script will boostrap the system, by unpackaging a binary-archive embedded within itself, and then executing it.
+
+To view the content you can run this:
+
+    # dd if=lspro-bootstrap_1.2-7_arm.xsh bs=201 skip=1 2>/dev/null| tar zt
+    bootstrap/
+    bootstrap/bootstrap.sh
+    bootstrap/ipkg-opt.ipk
+    bootstrap/ipkg.sh
+    bootstrap/optware-bootstrap.ipk
+    bootstrap/wget.ipk
+
+You'll see that when `/bootstrap/bootstrap.sh` is executed it will install the two bundled `.ipkg` files (giving `ipkg` itself, and `wget` which is used to download packages).
+
 
 ## Install NFS
 
-Once you have `ipkg`, the package-manager, installed you can install
-things via:
+Once you have `ipkg`, the package-manager, installed you can install things via:
 
     # ipkg update
     # ipkg install $name
 
 To get the (user-space) NFS-server you'll run:
 
+    # ipkg update
     # ipkg install nfs-server
 
 To configure your exports you need to edit the configuration file

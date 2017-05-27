@@ -116,7 +116,7 @@ This is what I did to mount the shares on my desktop:
     mount  -t nfs -o vers=2 10.0.0.108:/mnt/array1/films /srv/films
 
     mkdir /srv/tv
-    mount  -t nfs -o vers=2 10.0.0.108:/mnt/array1/films /srv/tv
+    mount  -t nfs -o vers=2 10.0.0.108:/mnt/array1/tv /srv/tv
 
     mkdir /srv/backups
     mount  -t nfs -o vers=2 10.0.0.108:/mnt/array1/backups /srv/backups

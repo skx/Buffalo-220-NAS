@@ -103,7 +103,6 @@ be able to list those exports:
 
     root@deagol:~# showmount -e 10.0.0.108
     Export list for 10.0.0.108:
-    /mnt/array1/misc    10.0.0.10
     /mnt/array1/tv      10.0.0.10
     /mnt/array1/films   10.0.0.10
     /mnt/array1/backups 10.0.0.10
@@ -120,7 +119,7 @@ This is what I did to mount the shares on my desktop:
     mount  -t nfs -o vers=2 10.0.0.108:/mnt/array1/films /srv/tv
 
     mkdir /srv/backups
-    mount  -t nfs -o vers=2 10.0.0.108:/mnt/array1/films /srv/backups
+    mount  -t nfs -o vers=2 10.0.0.108:/mnt/array1/backups /srv/backups
 
 
 All done.

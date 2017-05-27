@@ -56,7 +56,7 @@ This is simple:
 
 The `.xsh` script will boostrap the system, by unpackaging a binary-archive embedded within itself, and then executing it.
 
-To view the content you can run this:
+To view the contents of the archive you can run this:
 
     # dd if=lspro-bootstrap_1.2-7_arm.xsh bs=201 skip=1 2>/dev/null| tar zt
     bootstrap/
@@ -66,7 +66,9 @@ To view the content you can run this:
     bootstrap/optware-bootstrap.ipk
     bootstrap/wget.ipk
 
-You'll see that when `/bootstrap/bootstrap.sh` is executed it will install the two bundled `.ipkg` files (giving `ipkg` itself, and `wget` which is used to download packages).
+**NOTE**: Use `.. | tar xf` if you wish to unpack locally and read what will be executed.
+
+Ultimately when `./bootstrap/bootstrap.sh` is executed it will install the two bundled `.ipkg` files (giving `ipkg` itself, and `wget` which is used to download packages), and configure `ipkg`.
 
 
 ## Install NFS

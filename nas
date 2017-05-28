@@ -13,4 +13,4 @@ IP=10.0.0.108
 
 ADMIN_PASS=Pah7zo3echae
 
-java -jar acp_commander.jar -t ${IP} -ip ${IP} -pw ${ADMIN_PASS} -c "$*"
+java -jar acp_commander.jar  -q -t ${IP} -ip ${IP} -pw ${ADMIN_PASS} -c "$*"

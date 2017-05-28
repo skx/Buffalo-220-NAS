@@ -13,13 +13,39 @@ There are two systems involved here:
 
 # Get Root
 
-See `./[root.sh](root.sh)` which uses `./[nas](nas)`.
+To get root on the device you can use the bundled `acp_commander.jar` command - of course you'll need a Java installation to do that.
+
+Using `acp_commander.jar` you can execute arbitrary commands on the nas, as `root`,  you just need to know the IP address of your NAS and the password for the `admin` user.
+
+Add your details to the [nas](nas) script, then execute it like so:
+
+    ./nas uptime
+    Using random connID value = 6F10567B8986
+    Using target:	10.0.0.108/10.0.0.108
+    Starting authentication procedure...
+    Sending Discover packet...
+    Found:	LS220DE37E (/10.0.0.108) 	LS220DE(GOICHIJO) (ID=004814) 	mac: 88:57:EE:4A:73:7E	Firmware=  1.650	Key=5E889F5B
+    Trying to authenticate EnOneCmd...	ACP_STATE_OK
+    Trying to authenticate with admin password...	ACP_STATE_OK
+    >uptime
+     18:39:10 up 2 days,  5:27,  0 users,  load average: 0.13, 0.14, 0.14
+
+Assuming this works for you then you can now examine the get-root script which will run a couple of commands:
+
+* [root.sh](root.sh)
+  * Change the `root` password to `ssh.pass`.
+    * **NOTE**: This is the password you'll use for SSH, the `admin` webui login will remain unchanged.
+  * Enable SFTP/SSH support.
+  * Stop & start the `sshd` server
+
 
 Once you have root you can login to your NAS via SSH and run commands
-interactively.  This is a good point to stop if you're happy with Linux:
+interactively, as you'd expect:
 
     deagol ~ $ ssh root@10.0.108
     root@10.0.108's password:
+
+>**REMEMBER**: The `root.sh` script will have set the ssh-password to be `ssh.pass`.
 
     [root@LS220DE37E ~]# uptime
      15:24:32 up 1 day,  2:12,  1 user,  load average: 0.20, 0.18, 0.70

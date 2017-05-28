@@ -15,7 +15,7 @@ There are two systems involved here:
 
 To get root on the device you can use the bundled `acp_commander.jar` command - of course you'll need a Java installation to do that.
 
-Using `acp_commander.jar` you can execute arbitrary commands on the nas, as `root`,  you just need to know the IP address of your NAS and the password for the `admin` user.
+Using `acp_commander.jar` you can execute arbitrary commands on the NAS, as `root`,  you just need to know the IP address of your NAS and the password for the `admin` user.
 
 Add your details to the [nas](nas) script, then execute it like so:
 
@@ -74,11 +74,13 @@ interactively, as you'd expect:
 
 ## Install ipkg
 
-This is simple:
+Install `ipkg` like so:
 
     cd /tmp
     wget http://ipkg.nslu2-linux.org/feeds/optware/cs05q3armel/cross/stable/lspro-bootstrap_1.2-7_arm.xsh
     sh ./lspro-bootstrap_1.2-7_arm.xsh
+
+> **NOTE**: If this site disappears you can look at the `archive/` directory in this repository.
 
 The `.xsh` script will boosttrap the system, by unpackaging a binary-archive embedded within itself, and then executing it.
 

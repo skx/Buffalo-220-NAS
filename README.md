@@ -13,7 +13,7 @@ There are two systems involved here:
 
 # Get Root
 
-See `./root.sh` which uses `./nas`.
+See `./[root.sh](root.sh)` which uses `./[nas](nas)`.
 
 Once you have root you can login to your NAS via SSH and run commands
 interactively.  This is a good point to stop if you're happy with Linux:
@@ -125,6 +125,3 @@ This is what I did to mount the shares on my desktop:
 
 
 All done.
-
-
-

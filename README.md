@@ -120,8 +120,8 @@ To configure your exports you need to edit the configuration file
 
 Once that file has been updated you'll need to restart NFS:
 
-    /opt/etc/init.d/*nsfs* stop
-    /opt/etc/init.d/*nsfs* start
+    /opt/etc/init.d/*nfs* stop
+    /opt/etc/init.d/*nfs* start
 
 **NOTE**: We're explicitly installing the __user-space__ NFS server here.  My first attempt involved using the kernel-mode NFS server, via a third-party repository.  This failed to boot, effectively bricking the device neatly.  Recovering from that was a real pain, and something I have no wish to repeat!  (You need a third-party kernel because the default kernel contains zero NFS-modules.  Also doesn't contain a kernel `.config` file either.)
 

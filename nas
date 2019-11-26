@@ -20,7 +20,7 @@ ADMIN_PASS=Pah7zo3echae
 if [ -n "$MAC" ]; then
 	java -jar acp_commander.jar  -q -t ${IP} -ip ${IP} -m ${MAC} -pw ${ADMIN_PASS} -c "$*"
 else
-	echo NOTE: MAC not define, if this doesn't work try defining your NAS' MAC address above.
+	echo NOTE: MAC not defined. If this doesn't work try to define your NAS' MAC address above.
 	java -jar acp_commander.jar  -q -t ${IP} -ip ${IP} -pw ${ADMIN_PASS} -c "$*"
 fi
 
